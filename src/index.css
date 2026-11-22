@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: #030817;
+    color: #f1f5f9;
+    overflow-x: hidden;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes pulse-line {
+  0% {
+    stroke-dashoffset: 600;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-pulse-ecg {
+  stroke-dasharray: 600;
+  animation: pulse-line 1.8s linear infinite;
+}
+
+.animate-orbit {
+  animation: orbit-spin 10s linear infinite;
+}
+
+.animate-orbit-counter {
+  animation: orbit-counter 10s linear infinite;
+}
+
+/* Custom subtle scrollbars for dark glass UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(6, 17, 43, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-ecg,
+  .animate-orbit,
+  .animate-orbit-counter {
+    animation: none;
+  }
+}

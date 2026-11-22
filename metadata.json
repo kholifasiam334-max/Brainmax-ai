@@ -1,0 +1,6 @@
+{
+  "name": "Brain Max AI",
+  "description": "AI-powered trading signal suite, candlestick chart analyzer, economic news bias tracker, and risk management planner.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
